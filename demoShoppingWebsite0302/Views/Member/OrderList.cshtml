@@ -1,0 +1,67 @@
+﻿@model IEnumerable<demoShoppingWebsite0302.Models.table_Order>
+
+@{
+    ViewBag.Title = "會員訂單列表";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+<h2>OrderList</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            訂單編號  
+        </th>
+        <th>
+            會員編號   
+        </th>
+        <th>
+            收件人姓名
+         </th>
+        <th>
+            收件人信箱
+        </th>
+        <th>
+            收件人地址
+        </th>
+        <th>
+            訂單日期
+         </th>
+      
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderGuid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Receiver)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                <a href="@Url.Action("OrderDetail")?OrderGuid=@item.OrderGuid" class="btn btn-info">訂單明細</a>
+            </td>
+
+
+        </tr>
+        
+    }
+
+</table>
+
+

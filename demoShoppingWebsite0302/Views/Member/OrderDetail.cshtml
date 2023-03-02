@@ -1,0 +1,64 @@
+﻿@model IEnumerable<demoShoppingWebsite0302.Models.table_OrderDetail>
+@{
+    ViewBag.Title = "訂單明細";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+<h2>訂單明細</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            訂單編號
+        </th>
+        <th>
+            會員編號
+        </th>
+        <th>
+            產品編號
+        </th>
+        <th>
+            品名
+        </th>
+        <th>
+            單價
+        </th>
+        <th>
+            訂購數量
+        </th>
+        <th>
+            是否形成訂單
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderGuid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsApproved)
+            </td>
+            
+        </tr>
+    }
+
+</table>
+
